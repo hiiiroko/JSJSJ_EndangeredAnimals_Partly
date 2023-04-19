@@ -1,4 +1,4 @@
-# JSJDS_EndangeredAnimals_Partly
+# JSJSJ_EndangeredAnimals_Partly
 
 Created through Vite, JS &amp; CSS. Distribution &amp; Protection part.
 
