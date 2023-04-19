@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Protection from './components/protection/Protection'
+import UI from './components/ui/UI'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Protection />
+    <UI />
   </React.StrictMode>,
 )
