@@ -1,13 +1,21 @@
 import { useState } from 'react'
 import './Distribution.css'
+// BMap没有成功暴露，无法在Distribution中导入
+// import BMap from 'BMap'
 
 function Distribution() {
   const [count, setCount] = useState(0)
+  navigator.geolocation.getCurrentPosition((position => {
+    const map = new BMap.Map("container");
+    const latitude = position.coords.latitude
+    const longitude = position.coords.longitude
+    map.centerAndZoom((new BMap.Point(longitude, latitude)), 15);
+  }))
 
   return (
     <div className="Distribution">
-      {/* TODO 导入百度地图 注意保护AK号不要暴露 */}
-      {/* 加密仓库或编码AK号 */}
+      <div id="container"></div>
+
     </div>
   )
 }

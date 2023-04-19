@@ -17,10 +17,10 @@ function UI() {
       <div className='display'>
         <div className='logo'>濒危动物调查局</div>
         <div className='content'>
-          {scene == 'distribution' ? 'Distribution' : ''}
+          {/* {scene == 'distribution' ? 'Distribution' : ''} */}
           {scene == 'protection' ? <Protection /> : ''}
           {/* {scene == 'protection' ? 'Protection' : ''} */}
-          {/* {scene == 'distribution' ? <Distribution /> : ''} */}
+          {scene == 'distribution' ? <Distribution /> : ''}
         </div>
       </div>
       <div className='control'>

@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>濒危动物调查局</title>
+  <!-- 引入百度地图API -->
+  <!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=j1PjGvEYZabgetRzhKFaiIgnnNHvcmLS"></script> -->
+  <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=j1PjGvEYZabgetRzhKFaiIgnnNHvcmLS"></script> -->
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=j1PjGvEYZabgetRzhKFaiIgnnNHvcmLS"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <!-- TODO 导入百度地图 注意保护AK号不要暴露
+    若成功 在仓库中需要以密文形式出现 -->
+</body>
+
 </html>
