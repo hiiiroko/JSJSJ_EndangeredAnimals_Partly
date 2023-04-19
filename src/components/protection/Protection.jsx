@@ -1,41 +1,51 @@
 import { useState } from 'react'
 import './Protection.css'
-import '../../echarts'
+import './P_Style.css'
 
 function Protection() {
-  const [count, setCount] = useState(0)
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'));
+  const imgUrl = [
+    { backgroundImage: `url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')` },
+    { backgroundImage: `url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')` },
+    { backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80')` },
+    { backgroundImage: `url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80')` },
+    { backgroundImage: `url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')` }
+  ]
 
-    // 指定图表的配置项和数据
-    var option = {
-      title: {
-        text: '程文硕战败次数'
-      },
-      tooltip: {},
-      legend: {
-        data: ['销量']
-      },
-      xAxis: {
-        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-      },
-      yAxis: {},
-      series: [
-        {
-          name: '销量',
-          type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
-        }
-      ]
-    };
+  const panels = document.querySelectorAll('.panel')
 
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
+  panels.forEach(panel => {
+    panel.addEventListener('click', () => {
+      removeActiveClasses()
+      panel.classList.add('active')
+    })
+  })
+
+  function removeActiveClasses() {
+    panels.forEach(panel => {
+      panel.classList.remove('active')
+    })
+  }
+
   return (
     <div className="Protection">
-    <script src="echarts.js"></script>
-      Echarts Here!
-      <div id="main" style={{width: '600px',height:'400px'}}></div>
+      <div class="container">
+        <div class="panel active" style={imgUrl[0]}>
+          <h3>Explore The World</h3>
+        </div>
+        <div class="panel" style={imgUrl[1]}>
+          <h3>Wild Forest</h3>
+        </div>
+        <div class="panel" style={imgUrl[2]}>
+          <h3>Sunny Beach</h3>
+        </div>
+        <div class="panel" style={imgUrl[3]}>
+          <h3>City on Winter</h3>
+        </div>
+        <div class="panel" style={imgUrl[4]}>
+          <h3>Mountains - Clouds</h3>
+        </div>
+      </div>
+
     </div>
   )
 }
