@@ -1,0 +1,59 @@
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+}
+
+.UI {
+    display: flex;
+    height: 100vh;
+}
+
+.display {
+    width: 95vw;
+    background-color: beige
+}
+
+.control {
+    width: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: darkcyan;
+}
+
+.control button {
+    margin: 2vw;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    writing-mode: sideways-rl;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.control button:hover {
+    cursor: pointer
+}
+
+.logo {
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-weight: bold;
+    color: darkcyan;
+}
+
+.content {
+    height: 95vh;
+    background-color: #fff;
+}
