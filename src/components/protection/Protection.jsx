@@ -1,8 +1,7 @@
 import './Protection.css'
-import React, { PureComponent } from "react";
-import * as eCharts from "echarts";
+import React, { PureComponent } from "react"
+import * as eCharts from "echarts"
 
-// 好久没接触类组件了(3MZ 我给你举盾
 export default class Protection extends PureComponent {
 
   eChartsRef = React.createRef();

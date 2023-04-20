@@ -30,7 +30,7 @@
     cursor: pointer
 }
 
-#DcontainerChina {
+#DcontainerChina,#DcontainerYangtze {
     box-sizing: border-box;
     border-radius: 5em;
 }
