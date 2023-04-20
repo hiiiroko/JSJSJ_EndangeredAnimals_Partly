@@ -9,17 +9,19 @@ body {
     margin: 0;
 }
 
-.UI {
+.DPUI {
     display: flex;
     height: 100vh;
 }
 
-.display {
+.DPdisplay {
+    display: flex;
+    flex-direction: column;
     width: 95vw;
     background-color: beige
 }
 
-.control {
+.DPcontrol {
     width: 5vw;
     display: flex;
     flex-direction: column;
@@ -28,8 +30,8 @@ body {
     background-color: darkcyan;
 }
 
-.control button {
-    margin: 2vw;
+.DPcontrol button {
+    margin: 2vh;
     font-size: large;
     font-weight: bold;
     color: white;
@@ -39,11 +41,11 @@ body {
     background-color: transparent;
 }
 
-.control button:hover {
+.DPcontrol button:hover {
     cursor: pointer
 }
 
-.logo {
+.DPlogo {
     height: 5vh;
     display: flex;
     align-items: center;
@@ -53,7 +55,7 @@ body {
     color: darkcyan;
 }
 
-.content {
+.DPcontent {
     height: 95vh;
     background-color: #fff;
 }

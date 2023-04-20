@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './Distribution.css'
 import React, { PureComponent } from "react";
 import * as eCharts from "echarts";
@@ -9,54 +10,57 @@ import * as eCharts from "echarts";
 // BMap已经在index.html中挂载到了window对象上
 export default class Distribution extends PureComponent {
 
-  eChartsRef = React.createRef();
+  constructor() {
+    super(...arguments);
+    this.state = {
+      view: 'china',
+    };
+  }
+
   BMapRef = React.createRef();
 
   componentDidMount() {
-    // const myChart = eCharts.init(this.eChartsRef.current);
-
-    // let option = {
-    //   title: {
-    //     text: "ECharts 入门示例",
-    //   },
-    //   tooltip: {},
-    //   legend: {
-    //     data: ["销量"],
-    //   },
-    //   xAxis: {
-    //     data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
-    //   },
-    //   yAxis: {},
-    //   series: [
-    //     {
-    //       name: "销量",
-    //       type: "bar",
-    //       data: [5, 20, 36, 10, 10, 20],
-    //     },
-    //   ],
-    // };
-
-    // myChart.setOption(option);
     this.renderMap()
   }
 
   renderMap = () => {
     // 之所以将初始化的地图放到this对象上，是方便其他方法调用map对象
     this.map = new window.BMap.Map(this.BMapRef.current);
-    this.map.centerAndZoom('北京市', 5);
+    this.map.centerAndZoom('宁夏市', 5);
   }
 
+  switchView = (arg) => {
+    this.setState({ view: arg }, () => { console.log(`Now the view is ${this.state.view}.`) })
+    // 直接打印的是旧值
+    // console.table(this.state)
+  }
+
+  // 为了避免类名污染在前面加D
   render() {
     return (
       <div className="Distribution">
-        {/* <div ref={this.eChartsRef} style={{
-          width: 600,
-          height: 400,
-        }}></div> */}
-        <div id="container" style={{
-          width: 1200,
-          height: 800,
-        }} ref={this.BMapRef}></div>
+        <div className='Dcontent'>
+
+          <div id="DcontainerChina" style={{
+            width: 1200,
+            height: 800,
+            display: this.state.view == 'china' ? 'block' : 'none',
+            
+          }} ref={this.BMapRef}></div>
+
+          <div id="DcontainerYangtze" style={{
+            width: 1200,
+            height: 800,
+            display: this.state.view == 'yangtze' ? 'block' : 'none',
+          }}>YANGTZE</div>
+          {/* 这里因为初始化了BMap的实例所以不能改变DOM 故调整CSS display属性 */}
+          {/* {this.state.view == 'china' ? china  : ''}
+          {this.state.view == 'yangtze' ? yangtze : ''} */}
+          <div className='Dcontrol'>
+            <button onClick={() => this.switchView('china')}>中国全景</button>
+            <button onClick={() => this.switchView('yangtze')}>长江流域</button>
+          </div>
+        </div>
       </div>);
   }
 }
