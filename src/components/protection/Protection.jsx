@@ -6,19 +6,11 @@ import P_Info from './P_Info'
 import * as eCharts from "echarts"
 
 function Protection() {
-
-  const [friends, setFriends] = useState([])
-
   const options = ['habitat', 'research', 'species', 'reserve', 'education', 'cooperation']
   const [option, setOption] = useState(options[0])
   const switchOption = (arg) => {
     setOption(arg)
     console.log(`Switch to ${arg}.`)
-  }
-
-  const addFriend = () => {
-    setFriends([...friends, 'codewhy'])
-    console.log(friends)
   }
 
   return (
@@ -41,38 +33,23 @@ function Protection() {
       </div>
       <div className='Ppanel'>
         <div className='Ppassage'>
-          <TransitionGroup>
+          <TransitionGroup className={'P3Mz'}>
             {
-              friends.map((item, index) => {
-                return (
-                  <CSSTransition classNames="friend" timeout={300} key={index}>
-                    <div>{item}</div>
-                  </CSSTransition>
-                )
+              options.map((e, i) => {
+                if (option == e) {
+                  return (
+                    <CSSTransition
+                      classNames="Pasuka"
+                      timeout={1000}
+                      key={i}>
+                      <div className='PPite174'>{P_Info[i]}</div>
+                    </CSSTransition>
+                  )
+                }
               })
             }
           </TransitionGroup>
-          <button onClick={() => addFriend()}>+friend</button>
-          {/* <TransitionGroup>
-            {
-              options.map((item, index) => {
-                return (
-                  <CSSTransition classNames="friend" timeout={300} key={index}>
-                    <div>{P_Info[index]}</div>
-                  </CSSTransition>
-                )
-              })
-            }
-          </TransitionGroup> */}
         </div>
-        {/* <div className='Ppassage'>
-          {option == options[0] ? P_Info[0] : ''}
-          {option == options[1] ? P_Info[1] : ''}
-          {option == options[2] ? P_Info[2] : ''}
-          {option == options[3] ? P_Info[3] : ''}
-          {option == options[4] ? P_Info[4] : ''}
-          {option == options[5] ? P_Info[5] : ''}
-        </div> */}
       </div>
     </div >
   )

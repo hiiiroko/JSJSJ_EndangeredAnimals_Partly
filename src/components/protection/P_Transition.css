@@ -1,21 +1,49 @@
-.friend-enter {
+.Pasuka-enter {
     transform: translate(100%, 0);
     opacity: 0;
 }
 
-.friend-enter-active {
+.Pasuka-enter-active {
     transform: translate(0, 0);
     opacity: 1;
     transition: all 500ms;
 }
 
-.friend-exit {
+.Pasuka-exit {
     transform: translate(0, 0);
     opacity: 1;
 }
 
-.friend-exit-active {
+.Pasuka-exit-active {
     transform: translate(-100%, 0);
     opacity: 0;
     transition: all 500ms;
+}
+
+.P3Mz {
+    display: flex;
+}
+
+.PPite174 div {
+    width: 35vw;
+}
+
+.Protection {
+    background: linear-gradient(-45deg, #fffcc5, #3faed6, #3bf2c7);
+    background-size: 600% 600%;
+    animation: gradientBG 5s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
