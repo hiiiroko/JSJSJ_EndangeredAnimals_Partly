@@ -43,12 +43,12 @@
     overflow: scroll;
 }
 
-.Pcontrol .null {
+.null {
     color: darkcyan;
     cursor: default;
 }
 
-.hexagon {
+.hexagon, .null {
     margin: 0 20px;
     font-size: 1.8em;
     font-weight: bold;
@@ -58,10 +58,14 @@
     background-color: darkcyan;
     display: inline-block;
     position: relative;
-    cursor: pointer;
 
     width: var(--hex-bg-width);
     height: var(--hex-bg-height);
     -webkit-clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
     clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+}
+
+.hexagon:hover{
+    cursor: pointer;
+    background-color:cadetblue;
 }

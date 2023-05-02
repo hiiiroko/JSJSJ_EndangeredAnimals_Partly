@@ -77,7 +77,8 @@ export default class Distribution extends PureComponent {
   }
 
   switchView = (arg) => {
-    this.setState({ view: arg }, () => { console.log(`Now the view is ${this.state.view}.`) })
+    this.setState({ view: arg },
+      () => { console.log(`Now the view is ${this.state.view}.`) })
     // 直接打印的是旧值
     // console.table(this.state)
   }

@@ -29,7 +29,7 @@
 }
 
 .Protection {
-    background: linear-gradient(-45deg, #fffcc5, #3faed6, #3bf2c7);
+    background: linear-gradient(-45deg, #fffcc5, #91d3ec, #adedde);
     background-size: 600% 600%;
     animation: gradientBG 5s ease infinite;
 }
