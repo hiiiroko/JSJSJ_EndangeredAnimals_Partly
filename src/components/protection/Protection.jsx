@@ -1,103 +1,81 @@
 import './Protection.css'
-import React, { PureComponent } from "react"
+import './P_Transition.css'
+import React, { useState } from "react"
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import P_Info from './P_Info'
 import * as eCharts from "echarts"
 
-export default class Protection extends PureComponent {
+function Protection() {
 
-  eChartsRef = React.createRef();
+  const [friends, setFriends] = useState([])
 
-  componentDidMount() {
-    const myChart = eCharts.init(this.eChartsRef.current);
-
-    let option = {
-      title: {
-        text: "ECharts 入门示例",
-      },
-      tooltip: {},
-      legend: {
-        data: ["销量"],
-      },
-      xAxis: {
-        data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
-      },
-      yAxis: {},
-      series: [
-        {
-          name: "销量",
-          type: "bar",
-          data: [5, 20, 36, 10, 10, 20],
-        },
-      ],
-    };
-
-    myChart.setOption(option);
+  const options = ['habitat', 'research', 'species', 'reserve', 'education', 'cooperation']
+  const [option, setOption] = useState(options[0])
+  const switchOption = (arg) => {
+    setOption(arg)
+    console.log(`Switch to ${arg}.`)
   }
 
-  render() {
-    return <div ref={this.eChartsRef} style={{
-      width: 600,
-      height: 400,
-    }}></div>;
+  const addFriend = () => {
+    setFriends([...friends, 'codewhy'])
+    console.log(friends)
   }
+
+  return (
+    <div className="Protection">
+      {/* Pcontrol和Ppanel并列 */}
+      <div className='Pcontrol'>
+        <div className='PlineA'>
+          <button className='hexagon' onClick={() => switchOption(options[0])}>栖息地保护</button>
+          <button className='hexagon' onClick={() => switchOption(options[1])}>科学研究</button>
+        </div>
+        <div className='PlineB'>
+          <button className='hexagon' onClick={() => switchOption(options[2])}>物种保护</button>
+          <button className='hexagon null'>null</button>
+          <button className='hexagon' onClick={() => switchOption(options[3])}>建立保护区</button>
+        </div>
+        <div className='PlineC'>
+          <button className='hexagon' onClick={() => switchOption(options[4])}>教育宣传</button>
+          <button className='hexagon' onClick={() => switchOption(options[5])}>国际合作</button>
+        </div>
+      </div>
+      <div className='Ppanel'>
+        <div className='Ppassage'>
+          <TransitionGroup>
+            {
+              friends.map((item, index) => {
+                return (
+                  <CSSTransition classNames="friend" timeout={300} key={index}>
+                    <div>{item}</div>
+                  </CSSTransition>
+                )
+              })
+            }
+          </TransitionGroup>
+          <button onClick={() => addFriend()}>+friend</button>
+          {/* <TransitionGroup>
+            {
+              options.map((item, index) => {
+                return (
+                  <CSSTransition classNames="friend" timeout={300} key={index}>
+                    <div>{P_Info[index]}</div>
+                  </CSSTransition>
+                )
+              })
+            }
+          </TransitionGroup> */}
+        </div>
+        {/* <div className='Ppassage'>
+          {option == options[0] ? P_Info[0] : ''}
+          {option == options[1] ? P_Info[1] : ''}
+          {option == options[2] ? P_Info[2] : ''}
+          {option == options[3] ? P_Info[3] : ''}
+          {option == options[4] ? P_Info[4] : ''}
+          {option == options[5] ? P_Info[5] : ''}
+        </div> */}
+      </div>
+    </div >
+  )
 }
 
-// import { useState } from 'react'
-// import './Protection.css'
-// import './P_Style.css'
-
-// function Protection() {
-//   const items = [
-//     {
-//       backgroundImage: `url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')`,
-//       slogan: `Explore The World`
-//     },
-//     {
-//       backgroundImage: `url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')`,
-//       slogan: `Wild Forest`
-//     },
-//     {
-//       backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80')`,
-//       slogan: `Sunny Beach`
-//     },
-//     {
-//       backgroundImage: `url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80')`,
-//       slogan: `City on Winter`
-//     },
-//     {
-//       backgroundImage: `url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')`,
-//       slogan: `Mountains - Clouds`
-//     }
-//   ]
-
-//   const panels = document.querySelectorAll('.panel')
-
-//   panels.forEach(panel => {
-//     panel.addEventListener('click', () => {
-//       removeActiveClasses()
-//       panel.classList.add('active')
-//     })
-//   })
-
-//   function removeActiveClasses() {
-//     panels.forEach(panel => {
-//       panel.classList.remove('active')
-//     })
-//   }
-
-//   return (
-//     <div className="Protection">
-//       <div class="container">
-//         {items.map((item, i) => {
-//           return (
-//             <div class={`panel${i == 0 ? ' active' : ''}`} style={item} >
-//               <h3>{item.slogan}</h3>
-//             </div>
-//           )
-//         })}
-//       </div>
-
-//     </div >
-//   )
-// }
-
-// export default Protection
+export default Protection
