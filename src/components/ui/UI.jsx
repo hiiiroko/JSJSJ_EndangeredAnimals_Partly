@@ -6,7 +6,7 @@ import Distribution from '../distribution/Distribution'
 import Protection from '../protection/Protection'
 
 function UI() {
-  const [scene, setScene] = useState('protection')
+  const [scene, setScene] = useState('distribution')
   const switchScene = (arg) => {
     setScene(arg)
     console.log(`Switch to ${arg}.`)
