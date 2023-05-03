@@ -25,30 +25,21 @@ var data = [[
     }
 ],
 [
-    [28604, 77, 17096869, 'Australia', 1990],
-    [31163, 77.4, 27662440, 'Canada', 1990],
-    [1516, 68, 1154605773, 'China', 1990],
-    [13670, 74.7, 10582082, 'Cuba', 1990],
-    [28599, 75, 4986705, 'Finland', 1990],
-    [29476, 77.1, 56943299, 'France', 1990],
-    [31476, 75.4, 78958237, 'Germany', 1990],
-    [28666, 78.1, 254830, 'Iceland', 1990],
-    [1777, 57.7, 870601776, 'India', 1990],
-    [29550, 79.1, 122249285, 'Japan', 1990],
-    [2076, 67.9, 20194354, 'North Korea', 1990],
-    [12087, 72, 42972254, 'South Korea', 1990],
-    [24021, 75.4, 3397534, 'New Zealand', 1990],
-    [43296, 76.8, 4240375, 'Norway', 1990],
-    [10088, 70.8, 38195258, 'Poland', 1990],
-    [19349, 69.6, 147568552, 'Russia', 1990],
-    [10670, 67.3, 53994605, 'Turkey', 1990],
-    [26424, 75.7, 57110117, 'United Kingdom', 1990],
-    [37062, 75.4, 252847810, 'United States', 1990]
+    [3000, 10, 100000, '1956', 1990],
+    [6000, 20, 3400000, '1978', 1990],
+    [9000, 30, 44600000, '1988', 1990],
+    [12000, 40, 102500000, '1998', 1990],
+    [15000, 50, 234700000, '2008', 1990],
+    [18000, 55, 256500000, '2010', 1990],
+    [21000, 60, 274000000, '2015', 1990],
+    [24000, 65, 275000000, '2017', 1990],
+    [27000, 70, 275000000, '2019', 1990],
+    [30000, 75, 1180000000, '2020', 1990],
 ],
 ]
 
 
-const OptionA = {
+const OptionF = {
     tooltip: {
         formatter: '{a} <br/>{b} : {c}%'
     },
@@ -90,17 +81,17 @@ const OptionB = {
 
 const OptionC = {
     legend: {
-        data: ['Allocated Budget', 'Actual Spending']
+        data: ['1980年', '2020年']
     },
     radar: {
         // shape: 'circle',
         indicator: [
-            { name: 'Sales', max: 6500 },
-            { name: 'Administration', max: 16000 },
-            { name: 'Information Technology', max: 30000 },
-            { name: 'Customer Support', max: 38000 },
-            { name: 'Development', max: 52000 },
-            { name: 'Marketing', max: 25000 }
+            { name: '亚洲象', max: 500 },
+            { name: '大熊猫', max: 2000 },
+            { name: '藏羚羊', max: 50 },
+            { name: '长江江豚', max: 3000 },
+            { name: '金丝猴', max: 5000 },
+            { name: '红豆杉', max: 4000 }
         ]
     },
     series: [
@@ -109,12 +100,12 @@ const OptionC = {
             type: 'radar',
             data: [
                 {
-                    value: [4200, 3000, 20000, 35000, 50000, 18000],
-                    name: 'Allocated Budget'
+                    value: [180, 1100, 7, 2557, 500, 3000],
+                    name: '1980年'
                 },
                 {
-                    value: [5000, 14000, 28000, 26000, 42000, 21000],
-                    name: 'Actual Spending'
+                    value: [300, 1800, 30, 1012, 4000, 2000],
+                    name: '2020年'
                 }
             ]
         }
@@ -153,26 +144,12 @@ const OptionD = {
 };
 
 const OptionE = {
-    title: {
-        text: 'Funnel'
-    },
     tooltip: {
         trigger: 'item',
         formatter: '{a} <br/>{b} : {c}%'
     },
-    toolbox: {
-        feature: {
-            dataView: { readOnly: false },
-            restore: {},
-            saveAsImage: {}
-        }
-    },
-    legend: {
-        data: ['Show', 'Click', 'Visit', 'Inquiry', 'Order']
-    },
     series: [
         {
-            name: 'Funnel',
             type: 'funnel',
             left: '10%',
             top: 60,
@@ -205,26 +182,25 @@ const OptionE = {
                 }
             },
             data: [
-                { value: 60, name: 'Visit' },
-                { value: 40, name: 'Inquiry' },
-                { value: 20, name: 'Order' },
-                { value: 80, name: 'Click' },
-                { value: 100, name: 'Show' }
+                { value: 60, name: '划定生态保护红线' },
+                { value: 40, name: '设立宣传日' },
+                { value: 20, name: '开展科普活动' },
+                { value: 80, name: '建立自然保护体系' },
+                { value: 100, name: '制定法律法规' }
             ]
         }
     ]
 };
-
-const OptionF = {
+const OptionA = {
     title: {
-        text: 'Life Expectancy and GDP by Country',
+        text: '中国自然保护区',
         left: '5%',
         top: '3%'
     },
     legend: {
         right: '10%',
         top: '3%',
-        data: ['1990', '2015']
+        data: ['数量']
     },
     grid: {
         left: '8%',
@@ -247,7 +223,7 @@ const OptionF = {
     },
     series: [
         {
-            name: '1990',
+            name: '数量',
             data: data[1],
             type: 'scatter',
             symbolSize: function (data) {
@@ -281,6 +257,7 @@ const OptionF = {
         }
     ]
 };
+
 
 const P_OptionJson = [OptionA, OptionB, OptionC, OptionD, OptionE, OptionF];
 
