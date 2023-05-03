@@ -28,9 +28,15 @@
     width: 35vw;
 }
 
-.Protection {
+.PDF {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.null {
     background: linear-gradient(-45deg, #fffcc5, #91d3ec, #adedde);
-    background-size: 600% 600%;
+    background-size: 300% 300%;
     animation: gradientBG 5s ease infinite;
 }
 

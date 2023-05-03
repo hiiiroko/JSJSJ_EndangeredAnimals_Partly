@@ -105,10 +105,10 @@ export default class Distribution extends PureComponent {
           {/* {this.state.view == 'china' ? china  : ''}
           {this.state.view == 'yangtze' ? yangtze : ''} */}
 
-          <div className='Dcontrol'>
+          {/* <div className='Dcontrol'>
             <button onClick={() => this.switchView('china')}>中国全景</button>
             <button onClick={() => this.switchView('yangtze')}>长江流域</button>
-          </div>
+          </div> */}
         </div>
       </div>);
   }

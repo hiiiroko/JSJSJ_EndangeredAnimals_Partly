@@ -4,7 +4,7 @@ import UI from './components/ui/UI'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <UI />
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )

@@ -3,6 +3,7 @@ import './P_Transition.css'
 import React, { PureComponent } from "react"
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import P_Info from './P_Info'
+import P_OptionJson from './P_OptionJson';
 import * as eCharts from "echarts"
 
 const options = ['habitat', 'research', 'species', 'reserve', 'education', 'cooperation'];
@@ -15,15 +16,45 @@ export default class Protection extends PureComponent {
       option: options[0],
     };
   }
-  
+
+  PRoieeeRef = React.createRef();
+
+  componentDidMount() {
+    this.renderCharts(0)
+  }
+
+  renderCharts = (arg) => {
+
+    if (PRoieee || option) {
+      PRoieee.dispose();
+      option = undefined;
+    }
+    if (!PRoieee && !option) {
+      var PRoieee = eCharts.init(this.PRoieeeRef.current);
+      var option;
+    }
+
+    option = undefined;
+    option = P_OptionJson[arg];
+    PRoieee.clear() 
+    option && PRoieee.setOption(option);
+  }
 
   switchOption = (arg) => {
     this.setState({ option: arg },
-      () => { console.log(`Now the option is ${this.state.option}.`) })
+      () => {
+        console.log(`Now the option is ${this.state.option}.`);
+        console.log(`Now the index is ${options.indexOf(this.state.option)}.`)
+      })
+    this.renderCharts(options.indexOf(arg))
   }
 
   render() {
     return (
+      // <div className='PRoieee' style={{
+      //   width: 1200,
+      //   height: 800,
+      // }} ref={this.PRoieeeRef}></div>
       <div className="Protection">
         {/* Pcontrol和Ppanel并列 */}
         <div className='Pcontrol'>
@@ -43,6 +74,12 @@ export default class Protection extends PureComponent {
         </div>
         <div className='Ppanel'>
           <div className='Ppassage'>
+            <div className='PDF'>
+              <div className='PRoieee' style={{
+                width: 400,
+                height: 400,
+              }} ref={this.PRoieeeRef}></div>
+            </div>
             <TransitionGroup className={'P3Mz'}>
               {
                 options.map((e, i) => {
@@ -52,7 +89,9 @@ export default class Protection extends PureComponent {
                         classNames="Pasuka"
                         timeout={1000}
                         key={i}>
-                        <div className='PPite174'>{P_Info[i]}</div>
+                        <div className='PPite174'>
+                          {P_Info[i]}
+                        </div>
                       </CSSTransition>
                     )
                   }
